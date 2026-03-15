@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="single-post">
+  <header class="single-head">
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      {{ if eq .Section "publications" }}
+        {{ with .Params.authors }}{{ . }}{{ end }}{{ if and .Params.authors .Params.venue }} | {{ end }}{{ with .Params.venue }}{{ . }}{{ end }}{{ if and .Params.venue .Params.year }} | {{ end }}{{ with .Params.year }}{{ . }}{{ end }}
+      {{ else }}
+        {{ .Date.Format "Jan 2, 2006" }}
+      {{ end }}
+    </p>
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

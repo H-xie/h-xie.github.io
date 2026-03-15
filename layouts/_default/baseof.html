@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main class="page-shell">
+    <aside class="left-rail">
+      {{ partial "sidebar.html" . }}
+    </aside>
+    <section class="content-rail">
+      {{ block "main" . }}{{ end }}
+    </section>
+  </main>
+  <!-- no scroll effect -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+{{ define "main" }}
+{{ $grantsPage := .Site.GetPage "/grants" }}
+{{ $courses := sort (where .Site.RegularPages "Section" "courses") "File.Path" }}
+<article class="home-intro">
+  <!-- <h2>About Me</h2> -->
+  <div class="prose">{{ .Content }}</div>
+</article>
+
+<section class="section-block" id="news">
+  <div class="section-head">
+    <h2>News</h2>
+  </div>
+  {{ $news := first 5 (where .Site.RegularPages "Section" "posts") }}
+  <ul class="simple-list news-list">
+    {{ if gt (len $news) 0 }}
+      {{ range $news }}
+        <li>
+          <span class="meta-inline">{{ .Date.Format "2006-01-02" }}</span>
+          <span class="news-text">{{ .Title }}
+          <a class="news-link-icon" href="{{ .RelPermalink }}" aria-label="Open news: {{ .Title }}" title="Open news">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
+              <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z"></path>
+            </svg>
+          </a>
+          </span>
+        </li>
+      {{ end }}
+    {{ else }}
+      <li>No news yet.</li>
+    {{ end }}
+  </ul>
+</section>
+
+<section class="section-block" id="publications">
+  <div class="section-head">
+    <h2>Publications</h2>
+  </div>
+  {{ $publications := sort (where .Site.RegularPages "Section" "publications") "Params.year" "desc" }}
+  <ol class="harvard-publication-list">
+    {{ range $publications }}
+      {{ $authors := .Params.authors | default $.Site.Params.author }}
+      {{ $authors = replaceRE "谢海闻" "<strong>$0</strong>" $authors }}
+      {{ $authors = replaceRE "(?i)haiwen\\s+xie" "<strong>$0</strong>" $authors }}
+      {{ $authors = replaceRE "(?i)h\\s*xie" "<strong>$0</strong>" $authors }}
+      <li>
+        {{ $authors | safeHTML }}
+        ({{ with .Params.year }}{{ . }}{{ else }}n.d.{{ end }}).
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ with .Params.venue }}. {{ . }}{{ end }}.
+      </li>
+    {{ end }}
+  </ol>
+</section>
+
+{{ if $grantsPage }}
+  <section class="section-block" id="grants">
+    <div class="section-head">
+      <h2>Grants</h2>
+    </div>
+    <div class="prose">{{ $grantsPage.Content }}</div>
+  </section>
+{{ end }}
+
+<section class="section-block" id="courses">
+  <div class="section-head">
+    <h2>Courses</h2>
+  </div>
+  {{ if gt (len $courses) 0 }}
+    <ul class="simple-list">
+      {{ range $courses }}
+        <li><a href="{{ .RelPermalink }}">{{ .Params.name }}</a> ｜ {{ .Params.for }} ｜ {{ .Params.semester }}</li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>No courses information yet.</p>
+  {{ end }}
+</section>
+{{ end }}

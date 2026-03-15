@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="page-title-block">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+</section>
+
+<div class="list-stack">
+  {{ range .Pages.ByDate.Reverse }}
+    <article class="list-item">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="meta">
+        {{ if eq .Section "publications" }}
+          {{ with .Params.venue }}{{ . }}{{ end }}{{ if and .Params.venue .Params.year }} | {{ end }}{{ with .Params.year }}{{ . }}{{ end }}
+        {{ else }}
+          {{ .Date.Format "Jan 2, 2006" }}
+        {{ end }}
+      </p>
+      <p>{{ with .Summary }}{{ . }}{{ else }}{{ .Plain | truncate 180 }}{{ end }}</p>
+    </article>
+  {{ end }}
+</div>
+{{ end }}

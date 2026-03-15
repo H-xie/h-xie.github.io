@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="680" viewBox="0 0 540 680" role="img" aria-labelledby="title desc">
+  <title id="title">Profile avatar placeholder</title>
+  <desc id="desc">A minimal portrait placeholder with initials</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9e7f3"/>
+      <stop offset="100%" stop-color="#f1dfc7"/>
+    </linearGradient>
+  </defs>
+  <rect width="540" height="680" fill="url(#g)"/>
+  <circle cx="270" cy="250" r="120" fill="#ffffff" fill-opacity="0.78"/>
+  <rect x="120" y="400" width="300" height="180" rx="20" fill="#ffffff" fill-opacity="0.78"/>
+  <text x="270" y="485" text-anchor="middle" font-size="86" font-family="Georgia, serif" fill="#27445d">YN</text>
+</svg>
