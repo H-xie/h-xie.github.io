@@ -24,7 +24,7 @@ enableRobotsTXT = true
     institution = "Minnan Normal University"
     location = "Zhangzhou, Fujian, China"
     email = "haiwen_xie@mmnu.edu.cn"
-    avatar = "/images/avatar.jpeg"
+    avatar = "https://identicons.io/h-xie.png"
 
   [params.social]
     # google_scholar = "https://scholar.google.com/"
