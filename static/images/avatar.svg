@@ -1,14 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="540" height="680" viewBox="0 0 540 680" role="img" aria-labelledby="title desc">
-  <title id="title">Profile avatar placeholder</title>
-  <desc id="desc">A minimal portrait placeholder with initials</desc>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#d9e7f3"/>
-      <stop offset="100%" stop-color="#f1dfc7"/>
-    </linearGradient>
-  </defs>
-  <rect width="540" height="680" fill="url(#g)"/>
-  <circle cx="270" cy="250" r="120" fill="#ffffff" fill-opacity="0.78"/>
-  <rect x="120" y="400" width="300" height="180" rx="20" fill="#ffffff" fill-opacity="0.78"/>
-  <text x="270" y="485" text-anchor="middle" font-size="86" font-family="Georgia, serif" fill="#27445d">YN</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="#998932" d="M50 18.5L39.5 29L29 18.5L39.5 8ZM60.5 29L50 18.5L60.5 8L71 18.5ZM50 81.5L60.5 71L71 81.5L60.5 92ZM39.5 71L50 81.5L39.5 92L29 81.5ZM29 39.5L18.5 50L8 39.5L18.5 29ZM81.5 50L71 39.5L81.5 29L92 39.5ZM71 60.5L81.5 50L92 60.5L81.5 71ZM18.5 50L29 60.5L18.5 71L8 60.5Z"/><path fill="#e5ddb2" d="M29 8L29 29L18.5 29ZM92 29L71 29L71 18.5ZM71 92L71 71L81.5 71ZM8 71L29 71L29 81.5Z"/><path fill="#ccbc66" d="M50 39.5L50 50L39.5 50ZM60.5 50L50 50L50 39.5ZM50 60.5L50 50L60.5 50ZM39.5 50L50 50L50 60.5Z"/></svg>

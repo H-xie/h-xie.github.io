@@ -1,56 +1,36 @@
 const fs = require('fs');
-const crypto = require('crypto');
 const { execSync } = require('child_process');
+const jdenticon = require('jdenticon');
 
-// Function to get the latest git commit hash
-function getLatestGitHash() {
+// 获取最新 git commit hash，并与当前时间混合
+function getBlendedHash() {
+  let hash = '';
   try {
-    return execSync('git rev-parse HEAD').toString().trim();
+    hash = execSync('git rev-parse HEAD').toString().trim();
   } catch (error) {
     console.error('Error fetching git commit hash:', error);
-    return 'default-hash'; // Fallback in case of error
+    hash = 'default-hash';
   }
+  // 获取当前时间字符串
+  const now = new Date().toISOString();
+  // 用 sha256 混合 hash 和时间
+  const crypto = require('crypto');
+  return crypto.createHash('sha256').update(hash + now).digest('hex');
 }
 
-// Function to generate an identicon-style avatar SVG
+// 生成 identicon SVG
 function generateAvatar(hash) {
-  const size = 100; // 10x10 grid for more detail
-  const cellSize = 10; // Size of each cell in pixels
-  const colors = [`#${hash.substring(0, 6)}`, `#${hash.substring(6, 12)}`]; // Two colors based on hash
-
-  let svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${size * cellSize}" height="${size * cellSize}" viewBox="0 0 ${size * cellSize} ${size * cellSize}">
-      <rect width="${size * cellSize}" height="${size * cellSize}" fill="${colors[0]}"/>
-    </svg>
-  `;
-
-  // Generate the grid pattern
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < Math.ceil(size / 2); x++) {
-      const value = parseInt(hash[(y * size + x) % hash.length], 16);
-      if (value % 2 === 0) {
-        const fillColor = colors[1];
-        const rectX = x * cellSize;
-        const rectY = y * cellSize;
-
-        // Mirror the pattern horizontally
-        svg += `<rect x="${rectX}" y="${rectY}" width="${cellSize}" height="${cellSize}" fill="${fillColor}"/>`;
-        svg += `<rect x="${(size - x - 1) * cellSize}" y="${rectY}" width="${cellSize}" height="${cellSize}" fill="${fillColor}"/>`;
-      }
-    }
-  }
-
-  svg += '</svg>';
-  return svg;
+  // 100 为图片尺寸，可根据需要调整
+  return jdenticon.toSvg(hash, 100);
 }
 
-// Save the SVG to a file
+// 保存 SVG 到文件
 function saveAvatar(filePath) {
-  const hash = getLatestGitHash();
+  const hash = getBlendedHash();
   const svg = generateAvatar(hash);
   fs.writeFileSync(filePath, svg);
   console.log(`Avatar saved to ${filePath}`);
 }
 
-// Example usage
+// 用法
 saveAvatar('./static/images/avatar.svg');
