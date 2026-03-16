@@ -87,7 +87,6 @@ def build_front_matter(
 	year: str,
 	summary: str,
 	orcid_put_code: str,
-	orcid_record: str,
 ) -> str:
 	lines = [
 		"---",
@@ -97,7 +96,6 @@ def build_front_matter(
 		f"year: {year if year else datetime.date.today().year}",
 		f'summary: "{escape_yaml(format_summary(summary))}"',
 		f'orcid_put_code: "{escape_yaml(orcid_put_code)}"',
-		f'orcid_record: "{escape_yaml(orcid_record)}"',
 		'source: "orcid"',
 		"---",
 		"",
@@ -189,8 +187,7 @@ def main() -> int:
 				contributors.append(value)
 		authors = ", ".join(contributors) if contributors else ""
 
-		orcid_record = f"https://orcid.org/{orcid_id}/work/{put_code}"
-		external_url = pick_external_url(detail)
+		# external_url = pick_external_url(detail)  # 已移除
 		doi = pick_doi(detail)
 		abstract = detail.get("short-description", "") or ""
 
@@ -201,18 +198,14 @@ def main() -> int:
 			year=year,
 			summary=abstract,
 			orcid_put_code=put_code,
-			orcid_record=orcid_record,
 		)
 
 		body_lines = [
 			"This publication was synced automatically from ORCID.",
 			"",
-			f"- ORCID Record: {orcid_record}",
 		]
 		if doi:
 			body_lines.append(f"- DOI: https://doi.org/{doi}")
-		if external_url:
-			body_lines.append(f"- URL: {external_url}")
 		body = "\n".join(body_lines) + "\n"
 
 		filename = f"orcid-{put_code}-{sanitize_slug(work_title)}.md"

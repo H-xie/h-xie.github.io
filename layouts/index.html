@@ -6,13 +6,13 @@
   <div class="prose">{{ .Content }}</div>
 </article>
 
-<section class="section-block" id="news">
-  <div class="section-head">
-    <h2>News</h2>
-  </div>
-  {{ $news := first 5 (where .Site.RegularPages "Section" "posts") }}
-  <ul class="simple-list news-list">
-    {{ if gt (len $news) 0 }}
+{{ $news := first 5 (where .Site.RegularPages "Section" "posts") }}
+{{ if gt (len $news) 0 }}
+  <section class="section-block" id="news">
+    <div class="section-head">
+      <h2>News</h2>
+    </div>
+    <ul class="simple-list news-list">
       {{ range $news }}
         <li>
           <span class="meta-inline">{{ .Date.Format "2006-01-02" }}</span>
@@ -26,11 +26,16 @@
           </span>
         </li>
       {{ end }}
-    {{ else }}
-      <li>No news yet.</li>
-    {{ end }}
-  </ul>
-</section>
+    </ul>
+  </section>
+{{ end }}
+
+{{ $cvPage := .Site.GetPage "/cv" }}
+{{ if $cvPage }}
+  <section class="section-block" id="cv">
+    <div class="prose">{{ $cvPage.Content }}</div>
+  </section>
+{{ end }}
 
 <section class="section-block" id="publications">
   <div class="section-head">
@@ -46,7 +51,12 @@
       <li>
         {{ $authors | safeHTML }}
         ({{ with .Params.year }}{{ . }}{{ else }}n.d.{{ end }}).
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ $doi := .Params.doi }}
+        {{ if $doi }}
+          <a href="https://doi.org/{{ $doi }}" target="_blank" rel="noopener">{{ .Title }}</a>
+        {{ else }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
         {{ with .Params.venue }}. {{ . }}{{ end }}.
       </li>
     {{ end }}
