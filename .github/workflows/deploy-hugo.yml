@@ -1,7 +1,11 @@
 name: Build and Deploy Hugo site with Avatar
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Sync ORCID Publications
+    types:
+      - completed
     branches:
       - main
       - master
@@ -12,6 +16,7 @@ permissions:
 
 jobs:
   build-deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
