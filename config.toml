@@ -1,6 +1,6 @@
 baseURL = "https://h-xie.github.io/"
 languageCode = "en-us"
-title = "Haiwen Xie's Personal Academic Website"
+title = "Haiwen Xie of MNNU"
 enableRobotsTXT = true
 
 [pagination]
