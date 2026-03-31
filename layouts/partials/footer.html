@@ -1,4 +1,4 @@
 <footer class="site-footer">
-  <p>Copyright {{ now.Year }} {{ .Site.Params.author }}.</p>
+  <p>Copyright {{ now.Year }} {{ .Site.Params.author }}.Last updated: {{ dateFormat "2006-01-02" .Site.LastChange }}</p>
   <p>Powered by Hugo.</p>
 </footer>

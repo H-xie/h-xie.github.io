@@ -3,6 +3,14 @@
   padding-bottom: 0.2em;
   margin-bottom: 0.8em;
 }
+@font-face {
+  font-family: 'LXGW WenKai Screen';
+  src: url('/fonts/LXGWWenKaiScreen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #b9142d;
   --paper: #ffffff;
@@ -31,7 +39,8 @@ body {
   padding: 0;
   color: var(--ink);
   background: var(--bg);
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, "Times New Roman", Times, "LXGW WenKai Screen";
+  font-size: 12pt;
   line-height: 1.65;
 }
 
