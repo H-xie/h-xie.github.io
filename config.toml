@@ -1,59 +1,59 @@
 baseURL = "https://h-xie.github.io/"
 languageCode = "en-us"
-title = "Haiwen Xie of MNNU"
+title = "Haiwen Xie - Personal Academic Website"
 enableRobotsTXT = true
 
 [pagination]
-  pagerSize = 8
+pagerSize = 8
 
 [params]
-  description = "Personal academic website built with Hugo"
-  author = "Haiwen Xie"
+description = "Academic homepage of Haiwen Xie, Associate Professor at Minnan Normal University, showcasing peer-reviewed publications, research interests, teaching materials, courses, academic services, and selected posts. 谢海闻学术主页，闽南师范大学副教授，展示同行评审论文、研究方向、教学资料、课程信息、学术服务与精选博文。"
+author = "Haiwen Xie"
 
-  [params.icp]
-    number = ""
-    url = "https://beian.miit.gov.cn/"
+[params.icp]
+number = ""
+url = "https://beian.miit.gov.cn/"
 
-  [params.police]
-    number = ""
-    url = "https://beian.mps.gov.cn/"
+[params.police]
+number = ""
+url = "https://beian.mps.gov.cn/"
 
-  [params.profile]
-    name = "Haiwen Xie"
-    title = "Associate Professor"
-    institution = "Minnan Normal University"
-    location = "Zhangzhou, Fujian, China"
-    email = "haiwen_xie@mmnu.edu.cn"
-    avatar = "/images/avatar.svg"
+[params.profile]
+name = "Haiwen Xie"
+title = "Associate Professor"
+institution = "Minnan Normal University"
+location = "Zhangzhou, Fujian, China"
+email = "haiwen_xie@mmnu.edu.cn"
+avatar = "/images/avatar.svg"
 
-  [params.social]
-    # google_scholar = "https://scholar.google.com/"
-    github = "https://github.com/h-xie"
-    # linkedin = "https://www.linkedin.com/"
-    orcid = "https://orcid.org/0000-0002-8379-4736"
+[params.social]
+# google_scholar = "https://scholar.google.com/"
+github = "https://github.com/h-xie"
+# linkedin = "https://www.linkedin.com/"
+orcid = "https://orcid.org/0000-0002-8379-4736"
 
 [menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-  [[menu.main]]
-    name = "Publications"
-    url = "/publications/"
-    weight = 2
+[[menu.main]]
+name = "Publications"
+url = "/publications/"
+weight = 2
 
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 3
+[[menu.main]]
+name = "Posts"
+url = "/posts/"
+weight = 3
 
-  [[menu.main]]
-    name = "Courses"
-    url = "/courses/"
-    weight = 4
+[[menu.main]]
+name = "Courses"
+url = "/courses/"
+weight = 4
 
-  [[menu.main]]
-    name = "CV"
-    url = "/cv/"
-    weight = 5
+[[menu.main]]
+name = "CV"
+url = "/cv/"
+weight = 5
