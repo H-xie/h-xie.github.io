@@ -5,6 +5,7 @@
 /assets/jsconfig.json
 hugo_stats.json
 .hugo_build.lock
+package-lock.json
 
 # Node.js
 node_modules/
