@@ -2,6 +2,7 @@ baseURL = "https://h-xie.github.io/"
 languageCode = "en-us"
 title = "Haiwen Xie - Personal Academic Website"
 enableRobotsTXT = true
+enableGitInfo = true
 
 [pagination]
 pagerSize = 8
