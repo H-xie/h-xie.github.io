@@ -1,5 +1,6 @@
 # Hugo
 /public/
+/resources/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -7,10 +8,22 @@ hugo_stats.json
 
 # Node.js
 node_modules/
-npm-debug.log
+npm-debug.log*
 yarn-error.log
 
-# OS generated files
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code & IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS / editor generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -18,3 +31,19 @@ yarn-error.log
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Env
+.env
+.env.*
+
+# Generated asset
+static/images/avatar.svg
+
+# Temporary screenshots
+截屏*.png
