@@ -1,6 +1,6 @@
 ---
 title: "多分支结构强化表征能力的CapsNet方法"
-authors: "Haiwen Xie, 叶东毅, 陈昭炯"
+authors: "谢海闻, 叶东毅, 陈昭炯"
 venue: "计算机系统应用"
 year: 2019
 summary: "Imported from ORCID."

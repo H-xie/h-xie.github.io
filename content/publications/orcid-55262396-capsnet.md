@@ -1,6 +1,6 @@
 ---
 title: "基于CapsNet的汉字字形表征模型"
-authors: "Haiwen Xie, 叶东毅, 陈昭炯"
+authors: "谢海闻, 叶东毅, 陈昭炯"
 venue: "模式识别与人工智能"
 year: 2019
 summary: "Imported from ORCID."
