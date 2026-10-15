@@ -45,9 +45,7 @@
   <ol class="harvard-publication-list">
     {{ range $publications }}
       {{ $authors := .Params.authors | default $.Site.Params.author }}
-      {{ $authors = replaceRE "谢海闻" "<strong>$0</strong>" $authors }}
-      {{ $authors = replaceRE "(?i)haiwen\\s+xie" "<strong>$0</strong>" $authors }}
-      {{ $authors = replaceRE "(?i)h\\s*xie" "<strong>$0</strong>" $authors }}
+      {{ $authors = replaceRE `(?i)谢海闻|\bhaiwen\s+(?:海闻\s+)?xie\b(?:\s+谢)?|\bh\.?\s*xie\b|\bxie,\s*h\b\.?` "<strong>$0</strong>" $authors }}
       <li>
         {{ $authors | safeHTML }}
         ({{ with .Params.year }}{{ . }}{{ else }}n.d.{{ end }}).
